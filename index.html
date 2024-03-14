@@ -1,0 +1,203 @@
+<head>
+    <style>
+        /*
+        Style so name on left, and then menu on right
+        */
+        #navbar {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #000;
+            margin-bottom: 40px;
+            padding: 10px 
+        }
+
+        main {
+            color: #232129;
+            margin: 0 auto;
+            max-width: 768px;
+            padding: 16px
+        }
+
+        body {
+            font-family: 'Fira Sans', serif;
+        }
+
+        .pub {
+            border:1px solid #e0e0e0;
+            border-radius:5px;
+            padding:15px;
+            background:#ffffff;
+            width: 80%;
+            overflow:hidden;
+            display: block;
+            margin: 0 auto;
+            margin-bottom:20px;
+        }
+        
+        .project a {
+            text-decoration: none; 
+        }
+        
+        .project {
+            display: flex; 
+            padding-left: 0.75rem;
+            padding-right: 0.75rem; 
+            padding-top: 1rem;
+            padding-bottom: 1rem; 
+            align-items: center; 
+            border-radius: 0.25rem; 
+            border-width: 1px; 
+            border:solid #e0e0e0;
+            width:calc(45% - 15px)
+        }
+
+        .project-description {
+            display: flex; 
+            padding-right: 1.5rem; 
+            flex-direction: column; 
+        }
+
+        .project-container {
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            gap:15px;
+            padding-left: calc(10% - 15px);
+            padding-right: calc(10% - 15px);
+        }
+        
+        .project-stuff {
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            align-items: center; 
+            height: 100%; 
+        }
+
+        .arrow:hover {
+            transform: scale(1.1);
+        }
+        .arrow {
+            transition: all 0.15s;
+            transform-origin: 50% 50%;
+        }
+        /* Add socials */
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans&amp;family=Roboto+Slab&amp;family=Inter&amp;family=Noto+Serif&amp;display=swap" data-gatsby-head="true"/>
+</head>
+<body>
+    <main>
+    <nav id="navbar">
+      <span>Lawrence Zhao</span>
+    </nav>
+    <section style="margin-bottom:40px">
+        <p> Hey there! I'm a sophomore studying CS & Math at Yale, where I edit for the <a href="https://www.yalescientific.org/">Yale Scientific Magazine</a> and conduct research at the Van Dijk Lab. </p>
+        <p> You can contact me at larry.zhao@yale.edu.</p>
+
+    </section>
+    <div style="margin-bottom:40px">
+        <p>You can learn more about my research here.</p>
+        <div class="pub">
+            <h3 style="margin:0">L+M-24: Building a Dataset for Language + Molecules @ ACL 2024</h3>
+            <p>
+                Carl Edwards, Qingyun Wang, <b>Lawrence Zhao</b>, Heng Ji
+            </p>
+            <div>
+                <span>
+                    <span>ACL 2024 Language + Molecules Workshop</span>
+                    | 
+                </span>
+                <span>
+                    <a href="https://arxiv.org/pdf/2403.00791.pdf">arXiv</a>
+                    | 
+                </span>
+                <span>
+                    <a href="https://language-plus-molecules.github.io/">Website</a>
+                </span>
+            </div>
+        </div>
+        <div class="pub">
+            <h3 style="margin:0">What a Scientific Language Model Knows And Doesn’t Know About Chemistry</h3>
+            <p>
+                <b>Lawrence Zhao*</b>, Carl Edwards, Heng Ji
+            </p>
+            <div>
+                <span>
+                    <span>NeurIPS 2023 AI for Science Workshop</span>
+                    | 
+                </span>
+                <span>
+                    <a href="https://openreview.net/pdf?id=hSmn7BQZ2v">Paper</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:40px">
+        <p>I've also built the following projects:</p>
+        <div class="project-container">
+            <div class="project">
+                <div class="project-description">
+                    <p style="margin:0; font-weight:800">RRR</p>
+                    <p style="margin:0; padding-top:0.5rem; max-width: 13rem; color: gray">Search for restaurant recommendations</p>
+                </div>
+                <div class="project-stuff">
+                    <div style="position:relative">
+                        <img width="64" height="64" src="default.svg">
+                    </div>
+                    <a href="https://rrr-sigma.vercel.app/" style="padding-top:10px">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow" xmlns="http://www.w3.org/2000/svg"><path d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-description">
+                    <p style="margin:0; font-weight:800">YaleButteries</p>
+                    <p style="margin:0; padding-top:0.5rem; max-width: 13rem; color: gray">App to order from late-night cafes</p>
+                </div>
+                <div class="project-stuff">
+                    <div style="position:relative">
+                        <img width="64" height="64" style="border-radius:10px" src="yb.jpeg">
+                    </div>
+                    <a href="https://apps.apple.com/us/app/yale-butteries/id6448767895" style="padding-top:10px">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow" xmlns="http://www.w3.org/2000/svg"><path d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-description">
+                    <p style="margin:0; font-weight:800">SpotMe</p>
+                    <p style="margin:0; padding-top:0.5rem; max-width: 13rem; color: gray">ML for exercise pose correction</p>
+                </div>
+                <div class="project-stuff">
+                    <div style="position:relative">
+                        <img width="64" height="64" style="border-radius:10px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/OpenMoji-black_1F3CB.svg/1024px-OpenMoji-black_1F3CB.svg.png?20180524183949">
+                    </div>
+                    <a href="https://github.com/MadhavL/SpotMe" style="padding-top:10px">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow" xmlns="http://www.w3.org/2000/svg"><path d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-description">
+                    <p style="margin:0; font-weight:800">LeanTeach</p>
+                    <p style="margin:0; padding-top:0.5rem; max-width: 13rem; color: gray">Proving geometry through programming</p>
+                </div>
+                <div class="project-stuff">
+                    <div style="position:relative">
+                        <img width="64" height="64" style="border-radius:10px" src="https://pbs.twimg.com/profile_images/1090733477509648385/h2lrWz_R_200x200.png">
+                    </div>
+                    <a href="https://vaibhavkarve.github.io/leanteach_poster.pdf" style="padding-top:10px">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow" xmlns="http://www.w3.org/2000/svg"><path d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+    </main>
+</body>
