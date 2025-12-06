@@ -13,13 +13,17 @@
       padding: 20px;
     }
 
+    #navbar + * {
+      margin-bottom: 0;
+    }
+
     /* Navbar */
     #navbar {
-      display: flex;
       align-items: center;
-      border-bottom: 2px solid #000;
-      margin-bottom: 20px;
-      padding: 10px;
+      border-bottom: 1px solid #000;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
     }
 
     /* Filter buttons */
@@ -35,7 +39,7 @@
       background: #ddd;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.2s ease;
+      transition: 0.2s ease;
     }
 
     .filters button.active {
@@ -48,8 +52,10 @@
       list-style-type: none;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* exactly 4 per row */
+      grid-template-columns: repeat(3, 1fr); /* exactly 4 per row */
       gap: 20px;
+      grid-auto-rows: 1fr;
+
     }
 
     li a {
@@ -64,6 +70,7 @@
       background: white;
       box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
       position: relative;
+      height: 100%;   
     }
 
     li a:hover {
@@ -73,7 +80,8 @@
     li a img {
       width: 100%;
       height: 160px;
-      object-fit: cover;
+      object-fit: contain;
+      background-color: #eee;
     }
 
     .card-content {
@@ -107,24 +115,58 @@
     .hidden {
       display: none !important;
     }
+
+    .overall-container {
+      max-width: 900px;   /* or 900px for more minimal vibe */
+      margin: 0 auto;
+      padding: 0 20px;     /* left/right breathing room */
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
   </style>
 </head>
 <body>
-  
+  <div class="overall-container">
   <div class="container" id="projects">
     <nav id="navbar">
-      <h3>Lawrence Zhao</h3>
+      <h4>Lawrence Zhao</h4>
+
+  <div class="social-links">
+    <!-- Email -->
+    <a href="mailto:larry.zhao@yale.edu" target="_blank" aria-label="Email">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+    </a>
+
+    <!-- Google Scholar -->
+    <a href="https://scholar.google.com/citations?user=P2fh-wYAAAAJ&hl=en&oi=ao" target="_blank" aria-label="Google Scholar">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"></path></svg>
+    </a>
+
+    <!-- Twitter/X -->
+    <a href="https://x.com/lawrence46385" target="_blank" aria-label="X (Twitter)">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/lawrencezhao9" aria-label="LinkedIn">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
+    </a>
+  </div>
+</nav>
     </nav>
 
     <section style="margin-bottom:40px">
-        <p> Hi! I'm a senior studying CS & Math at Yale, broadly interested in AI research, writing, biology, and the intersection of all three.</p>
+        <p>Hi! I'm a senior at Yale studying computer science and mathematics. I’m interested in developing AI methods that support biological discovery.</p>
+        <p>Previously, I worked on discrete diffusion models with David van Dijk (Yale), scientific language models with Heng Ji (UIUC), led research at an AI startup serving Fortune 500 companies, and founded the multimedia branch at the <a href="https://www.yalescientific.org/">Yale Scientific Magazine</a>.</p>
     </section>
 
     <!-- Filter buttons -->
     <div class="filters">
       <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="writing">Writing</button>
       <button class="filter-btn" data-filter="research">Research</button>
+      <button class="filter-btn" data-filter="writing">Writing</button>
       <button class="filter-btn" data-filter="videography">Videography</button>
     </div>
 
@@ -133,23 +175,37 @@
       <ul>
 
         <!-- NeurIPS 2025 -->
+         <!-- Introduced discrete diffusion models incorporating chemical priors for molecular generation, producing synthesizable molecules with improved property optimization over token-based approaches.
+-->
         <li data-category="research">
           <a href="https://arxiv.org/abs/2502.09767">
             <span class="tag tag-research">Research</span>
             <img src="images/discrete_diffusion.png" alt="NeurIPS 2025">
             <div class="card-content">
-              <p>non-markovian discrete diffusion with causal LMs <br><small>NeurIPS 2025</small></p>
+              <p>Non-Markovian Discrete Diffusion with Causal Language Models <br><small>NeurIPS 2025</small></p>
             </div>
           </a>
         </li>
 
         <!-- Preprint: Single-cell scaling -->
+         
+        <li data-category="research">
+          <a href="">
+            <span class="tag tag-research">Research</span>
+            <img src="images/ETA diagram.png" alt="Single-cell LLMs">
+            <div class="card-content">
+              <p>Energy-Based Test-Time Adaptation for Object Detection<br><small>Senior Thesis</small></p>
+            </div>
+          </a>
+        </li>
+
+
         <li data-category="research">
           <a href="https://doi.org/10.1101/2025.04.14.648850">
             <span class="tag tag-research">Research</span>
             <img src="images/cell2sentence.png" alt="Single-cell LLMs">
             <div class="card-content">
-              <p>scaling LLMs for single-cell analysis <br><small>Preprint</small></p>
+              <p>Scaling LLMs for Single-Cell Analysis<br><small>Preprint</small></p>
             </div>
           </a>
         </li>
@@ -158,20 +214,22 @@
         <li data-category="research">
           <a href="https://www.biorxiv.org/content/10.1101/2024.10.25.620304v1">
             <span class="tag tag-research">Research</span>
-            <img src="images/shukla.png" alt="Endocannabinoids">
+            <img src="images/shukla2.png" alt="Endocannabinoids">
             <div class="card-content">
-              <p>dynamic mechanism for subtype selectivity of endocannabinoids <br><small>Preprint</small></p>
+              <p>Subtype Selectivity of Endocannabinoids<br><small>Preprint</small></p>
             </div>
           </a>
         </li>
 
         <!-- ACL 2024 -->
+             <!-- Created benchmark systematically evaluating chemistry knowledge in language models, distinguishing genuine chemical reasoning from statistical pattern matching in foundation models.-->
+
         <li data-category="research">
           <a href="https://arxiv.org/pdf/2403.00791.pdf">
             <span class="tag tag-research">Research</span>
             <img src="images/heng ji.png" alt="ACL 2024">
             <div class="card-content">
-              <p>language + molecules <br><small>ACL 2024</small></p>
+              <p>Language + Molecules Benchmark<br><small>ACL 2024</small></p>
             </div>
           </a>
         </li>
@@ -182,7 +240,7 @@
             <span class="tag tag-research">Research</span>
             <img src="images/what knows.png" alt="NeurIPS 2023">
             <div class="card-content">
-              <p>evaluating knowledge of chemistry in a scientific LM <br><small>neurips ai4science workshop 2023 </small></p>
+              <p>Evaluating Understanding of Chemistry in Galactica <br><small>NeurIPS AI4Science Workshop 2023 </small></p>
             </div>
           </a>
         </li>
@@ -192,7 +250,7 @@
             <span class="tag tag-writing">Writing</span>
             <img src="images/Kara_Tao_Metal_Free_Reaction_-1536x1151.png" alt="Metal-free reaction">
             <div class="card-content">
-              <p>this metal-free reaction contains… metal</p>
+              <p>This Metal-free Reaction Contains… Metal</p>
             </div>
           </a>
         </li>
@@ -201,21 +259,23 @@
             <span class="tag tag-research">Research</span>
             <img src="images/ysm.png" alt="Snowball Earth">
             <div class="card-content">
-              <p>snowball earth: did asteroids ice the globe?</p>
+              <p>Snowball Earth: Did Asteroids Ice the Globe?</p>
             </div>
           </a>
         </li>
+
         <li data-category="videography">
           <a href="https://youtu.be/yEmuUIG9FzE?si=YzJDn4p1tcid_wZM">
             <span class="tag tag-videography">Videography</span>
             <img src="images/thumbnail (1) (1).jpeg" alt="Video project">
             <div class="card-content">
-              <p>phage shift</p>
+              <p>A New Technique for Visualizing Phage-Bacteria Interactions</p>
             </div>
           </a>
         </li>
       </ul>
     </div>
+  </div>
   </div>
 
   <!-- Filter script -->
