@@ -33,20 +33,12 @@
       <svg width="20" height="20" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
     </a>
   </div>
-</nav>
     </nav>
 
     <section style="margin-bottom:40px">
-      <p>Hi! I’m a senior at Yale studying computer science and mathematics, interested in machine learning for biological and chemical systems. I lead research at <a href="https://www.sea12.co/">Sea12</a>.</p>
-      <p>Previously, I worked with David van Dijk on discrete diffusion and single-cell foundation models, and with Heng Ji on language models for chemistry. I also founded the multimedia branch of the Yale Scientific Magazine.</p>
+      <p>Hi! I’m a senior at Yale studying computer science and mathematics. I’m building AI systems at <a href="https://www.sea12.co/">Sea12</a>, an enterprise workflow automation company.</p>
+      <p>I worked with David van Dijk on discrete diffusion and single-cell foundation models, and with Heng Ji on language models for chemistry.</p>
     </section>
-    <!-- Filter buttons -->
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="research">Research</button>
-      <button class="filter-btn" data-filter="writing">Writing</button>
-      <button class="filter-btn" data-filter="videography">Videography</button>
-    </div>
 
     <!-- Cards -->
     <div class="paper-page">
@@ -55,12 +47,11 @@
         <!-- NeurIPS 2025 -->
          <!-- Introduced discrete diffusion models incorporating chemical priors for molecular generation, producing synthesizable molecules with improved property optimization over token-based approaches.
 -->
-        <li data-category="research">
+        <li>
           <a href="https://arxiv.org/abs/2502.09767">
-            <span class="tag tag-research">Research</span>
             <img src="images/discrete_diffusion.png" alt="NeurIPS 2025">
             <div class="card-content">
-              <p>Non-Markovian Discrete Diffusion with Causal Language Models <br><small>NeurIPS 2025</small></p>
+              <p>Non-Markovian Discrete Diffusion<br><small>NeurIPS 2025</small></p>
             </div>
           </a>
         </li>
@@ -68,9 +59,8 @@
         <!-- Preprint: Single-cell scaling -->
 
 
-        <li data-category="research">
+        <li>
           <a href="https://doi.org/10.1101/2025.04.14.648850">
-            <span class="tag tag-research">Research</span>
             <img src="images/cell2sentence.png" alt="Single-cell LLMs">
             <div class="card-content">
               <p>Scaling LLMs for Single-Cell Analysis<br><small>Preprint</small></p>
@@ -81,20 +71,18 @@
         <!-- ACL 2024 -->
              <!-- Created benchmark systematically evaluating chemistry knowledge in language models, distinguishing genuine chemical reasoning from statistical pattern matching in foundation models.-->
 
-        <li data-category="research">
+        <li class="mol-card">
+          <div id="mol-viewer" style="width:100%;height:160px;position:relative;"></div>
           <a href="https://arxiv.org/pdf/2403.00791.pdf">
-            <span class="tag tag-research">Research</span>
-            <img src="images/heng ji.png" alt="ACL 2024">
             <div class="card-content">
-              <p>Language + Molecules Benchmark<br><small>ACL 2024</small></p>
+              <p>Language + Molecules Benchmark<br><small>ACL 2024 &middot; <span id="download-count"></span></small></p>
             </div>
           </a>
         </li>
 
         <!-- NeurIPS 2023 -->
-        <li data-category="research">
+        <li>
           <a href="https://openreview.net/pdf?id=hSmn7BQZ2v">
-            <span class="tag tag-research">Research</span>
             <img src="images/what knows.png" alt="NeurIPS 2023">
             <div class="card-content">
               <p>Evaluating Understanding of Chemistry in Galactica <br><small>NeurIPS AI4Science Workshop 2023 </small></p>
@@ -102,61 +90,130 @@
           </a>
         </li>
 
-        <li data-category="writing">
+        <li>
           <a href="https://www.yalescientific.org/2024/02/this-metal-free-reaction-contains-metal/">
-            <span class="tag tag-writing">Writing</span>
             <img src="images/Kara_Tao_Metal_Free_Reaction_-1536x1151.png" alt="Metal-free reaction">
             <div class="card-content">
-              <p>This Metal-free Reaction Contains… Metal</p>
+              <p>This Metal-free Reaction Contains… Metal
+                <br><small>Yale Scientific Magazine</small>
+              </p>
             </div>
           </a>
         </li>
-        <li data-category="writing">
+        <li>
           <a href="https://www.yalescientific.org/2024/09/snowball-earth-did-asteroids-ice-the-globe/">
-            <span class="tag tag-research">Research</span>
             <img src="images/ysm.png" alt="Snowball Earth">
             <div class="card-content">
-              <p>Snowball Earth: Did Asteroids Ice the Globe?</p>
+              <p>Snowball Earth: Did Asteroids Ice the Globe?
+              <br><small>Yale Scientific Magazine</small>
+              </p>
             </div>
           </a>
         </li>
 
-        <li data-category="videography">
-          <a href="https://youtu.be/yEmuUIG9FzE?si=YzJDn4p1tcid_wZM">
-            <span class="tag tag-videography">Videography</span>
-            <img src="images/thumbnail (1) (1).jpeg" alt="Video project">
-            <div class="card-content">
-              <p>A New Technique for Visualizing Phage-Bacteria Interactions</p>
-            </div>
-          </a>
-        </li>
       </ul>
     </div>
   </div>
   </div>
 
-  <!-- Filter script -->
+  <script src="https://3dmol.org/build/3Dmol-min.js"></script>
   <script>
-    const buttons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('li[data-category]');
+    // Inline molecule data (XYZ format converted from V3000 SDF)
+    const molData = `71
+molecule
+C 2.671066 3.044788 6.661632
+C 1.459352 3.412128 5.786918
+C 0.725307 4.604646 6.431757
+O 0.596526 2.299543 5.741994
+C 1.918818 3.792394 4.355136
+N 2.421143 2.610436 3.632947
+C 2.442423 2.825251 2.169142
+C 1.050488 2.515154 1.563429
+N 0.844540 1.075899 1.367955
+C -0.366872 0.627599 0.746703
+C -1.440144 0.211025 1.545153
+C -2.636888 -0.204269 0.954426
+C -3.746259 -0.610163 1.776444
+N -4.639248 -0.935599 2.435645
+C -2.759700 -0.212143 -0.438857
+C -1.680689 0.166986 -1.251926
+N -1.814492 0.141198 -2.681709
+C -2.299741 -1.001754 -3.398492
+N -2.547945 -2.183118 -2.748951
+C -2.968375 -3.299078 -3.414068
+N -3.181967 -4.557181 -2.739925
+C -3.629102 -4.792725 -1.354850
+C -2.892032 -4.014655 -0.276288
+C -4.328899 -3.643259 -0.646890
+C -3.109913 -3.193671 -4.795980
+N -3.485600 -4.160899 -5.661102
+C -3.459346 -3.534445 -6.867211
+C -3.073124 -2.214581 -6.701329
+C -2.905872 -1.221766 -7.729334
+N -2.769748 -0.422730 -8.555827
+N -2.860535 -2.026760 -5.395156
+N -2.457863 -0.935153 -4.751010
+C -0.483117 0.604990 -0.655322
+Cl 0.894285 1.060577 -1.658519
+C 1.754811 0.101471 1.969935
+C 3.207448 0.416230 1.589233
+C 3.528562 1.936410 1.491271
+N 3.720538 2.333118 0.087611
+C 4.844628 1.899623 -0.688044
+O 5.708580 1.128807 -0.191484
+O 4.977975 2.330128 -2.004049
+H 3.179457 2.135334 6.275392
+H 2.343842 2.828531 7.701677
+H 3.404851 3.880132 6.689490
+H 0.384298 4.341190 7.456797
+H -0.168872 4.884194 5.833399
+H 1.395486 5.490052 6.495608
+H -0.167738 2.528095 5.148395
+H 1.054508 4.239997 3.817277
+H 2.709070 4.576960 4.399598
+H 3.397696 2.441720 3.969784
+H 2.697053 3.889600 1.951144
+H 0.958470 3.029012 0.583396
+H 0.238103 2.910963 2.206831
+H -1.342535 0.227268 2.624607
+H -3.699504 -0.497295 -0.893916
+H -1.439712 0.943974 -3.235047
+H -3.146608 -5.417483 -3.332261
+H -3.936280 -5.823984 -1.077663
+H -2.808437 -4.547829 0.694999
+H -2.114318 -3.301170 -0.609696
+H -4.459210 -2.710811 -1.227820
+H -5.085048 -3.967006 0.100245
+H -3.702466 -4.014702 -7.805786
+H 1.504490 -0.929676 1.633978
+H 1.637023 0.128071 3.074160
+H 3.873197 -0.051359 2.346645
+H 3.426966 -0.086646 0.623047
+H 4.492965 2.123358 2.016520
+H 3.075096 3.023249 -0.357366
+H 5.759206 2.026928 -2.573600`;
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Update active button
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    // Initialize 3D molecule viewer
+    const el = document.getElementById('mol-viewer');
+    const viewer = $3Dmol.createViewer(el, {backgroundColor: 'white'});
+    viewer.addModel(molData, 'xyz');
+    viewer.setStyle({}, {stick: {colorscheme: 'Jmol'}});
+    viewer.zoomTo();
+    viewer.zoom(1.4);
+    viewer.rotate(60, 'y');
+    viewer.rotate(20, 'x');
+    viewer.render();
 
-        const filter = btn.dataset.filter;
-
-        cards.forEach(card => {
-          if (filter === 'all' || card.dataset.category === filter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
+    // Fetch download count from HuggingFace
+    fetch('https://huggingface.co/api/datasets/language-plus-molecules/LPM-24_train?expand%5B%5D=downloads&expand%5B%5D=downloadsAllTime')
+      .then(r => r.json())
+      .then(data => {
+        const count = data.downloadsAllTime;
+        if (count) {
+          document.getElementById('download-count').textContent =
+            count.toLocaleString() + ' downloads';
+        }
       });
-    });
   </script>
 </body>
 </html>
