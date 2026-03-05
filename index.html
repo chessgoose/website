@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lawrence Zhao</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -63,7 +66,7 @@
           <a href="https://doi.org/10.1101/2025.04.14.648850">
             <img src="images/cell2sentence.png" alt="Single-cell LLMs">
             <div class="card-content">
-              <p>Scaling LLMs for Single-Cell Analysis<br><small>Preprint</small></p>
+              <p>Scaling LLMs for Single-Cell Analysis<br><small>Preprint &middot; <span id="c2s-download-count"></span> downloads</small></p>
             </div>
           </a>
         </li>
@@ -214,6 +217,17 @@ H 5.759206 2.026928 -2.573600`;
             count.toLocaleString() + ' downloads';
         }
       });
+
+    // Fetch and sum all-time download counts for both Cell2Sentence models
+    Promise.all([
+      fetch('https://huggingface.co/api/models/vandijklab/C2S-Scale-Gemma-2-2B?expand%5B%5D=downloadsAllTime').then(r => r.json()),
+      fetch('https://huggingface.co/api/models/vandijklab/C2S-Scale-Gemma-2-27B?expand%5B%5D=downloadsAllTime').then(r => r.json())
+    ]).then(([m2b, m27b]) => {
+      const count2b = typeof m2b.downloadsAllTime === 'number' ? m2b.downloadsAllTime : 0;
+      const count27b = typeof m27b.downloadsAllTime === 'number' ? m27b.downloadsAllTime : 0;
+      const total = count2b + count27b;
+      document.getElementById('c2s-download-count').textContent = total.toLocaleString();
+    });
   </script>
 </body>
 </html>
