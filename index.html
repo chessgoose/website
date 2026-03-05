@@ -40,7 +40,7 @@
 
     <section style="margin-bottom:40px">
       <p>Hi! I’m a senior at Yale studying computer science and mathematics. I’m building AI systems at <a href="https://www.sea12.co/">Sea12</a>, an enterprise workflow automation company.</p>
-      <p>I worked with David van Dijk on discrete diffusion and single-cell foundation models, and with Heng Ji on language models for chemistry.</p>
+      <p>I worked with David van Dijk on single-cell foundation models, and with Heng Ji on language models for chemistry.</p>
     </section>
 
     <!-- Cards -->
@@ -48,9 +48,7 @@
       <ul>
 
         <!-- NeurIPS 2025 -->
-         <!-- Introduced discrete diffusion models incorporating chemical priors for molecular generation, producing synthesizable molecules with improved property optimization over token-based approaches.
--->
-        <li>
+        <li class="white-image-bg">
           <a href="https://arxiv.org/abs/2502.09767">
             <img src="images/discrete_diffusion.png" alt="NeurIPS 2025">
             <div class="card-content">
@@ -84,7 +82,7 @@
         </li>
 
         <!-- NeurIPS 2023 -->
-        <li>
+        <li class="white-image-bg">
           <a href="https://openreview.net/pdf?id=hSmn7BQZ2v">
             <img src="images/what knows.png" alt="NeurIPS 2023">
             <div class="card-content">
@@ -93,7 +91,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="metal-card-test">
           <a href="https://www.yalescientific.org/2024/02/this-metal-free-reaction-contains-metal/">
             <img src="images/Kara_Tao_Metal_Free_Reaction_-1536x1151.png" alt="Metal-free reaction">
             <div class="card-content">
@@ -103,7 +101,7 @@
             </div>
           </a>
         </li>
-        <li>
+        <li class="snowball-card-test">
           <a href="https://www.yalescientific.org/2024/09/snowball-earth-did-asteroids-ice-the-globe/">
             <img src="images/ysm.png" alt="Snowball Earth">
             <div class="card-content">
@@ -207,14 +205,89 @@ H 5.759206 2.026928 -2.573600`;
     viewer.rotate(20, 'x');
     viewer.render();
 
+    function applyMatchedImageBackground(img) {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const sampleSize = 64;
+      canvas.width = sampleSize;
+      canvas.height = sampleSize;
+      ctx.drawImage(img, 0, 0, sampleSize, sampleSize);
+
+      const { data } = ctx.getImageData(0, 0, sampleSize, sampleSize);
+      const bins = new Map();
+
+      for (let y = 0; y < sampleSize; y++) {
+        for (let x = 0; x < sampleSize; x++) {
+          const i = (y * sampleSize + x) * 4;
+          const alpha = data[i + 3];
+          if (alpha < 10) continue;
+
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+
+          // Skip near-black text pixels so the background color dominates.
+          if (r < 40 && g < 40 && b < 40) continue;
+
+          const qr = r >> 4;
+          const qg = g >> 4;
+          const qb = b >> 4;
+          const key = `${qr},${qg},${qb}`;
+          bins.set(key, (bins.get(key) || 0) + 1);
+        }
+      }
+
+      let bestKey = null;
+      let bestCount = 0;
+      bins.forEach((count, key) => {
+        if (count > bestCount) {
+          bestCount = count;
+          bestKey = key;
+        }
+      });
+
+      if (bestKey) {
+        const [qr, qg, qb] = bestKey.split(',').map(Number);
+        const r = qr * 16 + 8;
+        const g = qg * 16 + 8;
+        const b = qb * 16 + 8;
+        const color = `rgb(${r}, ${g}, ${b})`;
+        img.style.backgroundColor = color;
+      }
+    }
+
+    document.querySelectorAll('.paper-page li:not(.white-image-bg) a img').forEach((img) => {
+      const run = () => {
+        try {
+          applyMatchedImageBackground(img);
+        } catch (_) {
+          img.style.backgroundColor = '#fff';
+        }
+      };
+
+      if (img.complete) {
+        run();
+      } else {
+        img.addEventListener('load', run, { once: true });
+      }
+    });
+
+    function formatCountFloor(n) {
+      if (!Number.isFinite(n) || n < 0) return '0';
+      if (n < 1000) return Math.floor(n).toLocaleString();
+      if (n < 1000000) return Math.floor(n / 1000) + 'K';
+      if (n < 1000000000) return Math.floor(n / 1000000) + 'M';
+      return Math.floor(n / 1000000000) + 'B';
+    }
+
     // Fetch download count from HuggingFace
     fetch('https://huggingface.co/api/datasets/language-plus-molecules/LPM-24_train?expand%5B%5D=downloads&expand%5B%5D=downloadsAllTime')
       .then(r => r.json())
       .then(data => {
         const count = data.downloadsAllTime;
-        if (count) {
+        if (typeof count === 'number') {
           document.getElementById('download-count').textContent =
-            count.toLocaleString() + ' downloads';
+            formatCountFloor(count) + ' downloads';
         }
       });
 
@@ -226,7 +299,7 @@ H 5.759206 2.026928 -2.573600`;
       const count2b = typeof m2b.downloadsAllTime === 'number' ? m2b.downloadsAllTime : 0;
       const count27b = typeof m27b.downloadsAllTime === 'number' ? m27b.downloadsAllTime : 0;
       const total = count2b + count27b;
-      document.getElementById('c2s-download-count').textContent = total.toLocaleString();
+      document.getElementById('c2s-download-count').textContent = formatCountFloor(total);
     });
   </script>
 </body>

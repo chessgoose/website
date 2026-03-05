@@ -51,7 +51,7 @@ li a img {
     width: 100%;
     height: 160px;
     object-fit: contain;
-    background-color: #eee;
+    background-color: #fff;
 }
 
 .card-content {
@@ -90,4 +90,20 @@ li a img {
     border: none;
     box-shadow: none;
     height: auto;
+}
+
+.white-image-bg a img {
+    background-color: #fff;
+}
+
+.metal-card-test > a img {
+    background-color: rgb(184, 232, 120) !important;
+}
+
+.metal-card-test .card-content {
+    background-color: #fff !important;
+}
+
+.snowball-card-test > a img {
+    background-color: rgb(24, 8, 40) !important;
 }
