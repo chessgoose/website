@@ -106,4 +106,5 @@ li a img {
 
 .snowball-card-test > a img {
     background-color: rgb(24, 8, 40) !important;
+    object-position: right center;
 }
