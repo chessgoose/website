@@ -79,7 +79,7 @@ const material = new THREE.PointsMaterial({
   map: createCircleTexture(),
 });
 const cloud = new THREE.Points(geometry, material);
-camera.position.set(0.5, -0.1, 0.05);
+camera.position.set(0.5, 0.0, 0.0);
 cloud.rotation.y = 0.3;
 cloud.rotation.x = 0.0;
 scene.add(cloud);

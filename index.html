@@ -39,8 +39,8 @@
     </nav>
 
     <section style="margin-bottom:40px">
-      <p>Hi! I’m a senior at Yale studying computer science and mathematics.</p>
-      <p>Most recently, I built AI systems at <a href="https://www.sea12.co/">Sea12</a>, an enterprise workflow automation company. I have also worked with David van Dijk on single-cell foundation models and with Heng Ji on language models for chemistry.</p>
+      <p>Hi! I’m a senior at Yale studying computer science and mathematics. I'm interested in developing AI for scientific discovery.</p>
+      <p>Previously, I built AI systems at <a href="https://www.sea12.co/">Sea12</a>, an enterprise workflow automation company. I have also worked with <a href="https://www.vandijklab.org/">David van Dijk</a> on single-cell foundation models and with <a href="https://blender.cs.illinois.edu/hengji.html">Heng Ji</a> on language models for chemistry.</p>
     </section>
 
     <!-- Cards -->
@@ -205,8 +205,9 @@ H 5.759206 2.026928 -2.573600`;
     viewer.setStyle({}, {stick: {colorscheme: 'Jmol'}});
     viewer.zoomTo();
     viewer.zoom(1.4);
-    viewer.rotate(60, 'y');
+    viewer.rotate(240, 'y');
     viewer.rotate(20, 'x');
+    viewer.rotate(0, 'z');
     viewer.render();
 
     function applyMatchedImageBackground(img) {
