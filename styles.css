@@ -1,8 +1,14 @@
 body {
-    font-family: "IBM Plex Sans", "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    font-family: "Plus Jakarta Sans", "Avenir Next", Avenir, "Segoe UI", sans-serif;
     color: #333;
     margin: 0;
-    padding: 15px;
+    padding: clamp(8px, 1.5vh, 15px);
+    min-height: 100svh;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 #navbar + * {
@@ -15,20 +21,21 @@ body {
     border-bottom: 1px solid #000;
     display: flex;
     justify-content: space-between;
-    padding: 4px 0;
+    padding: 2px 0 4px;
 }
 
 #navbar h4 {
-    margin: 6px 0;
+    margin: 4px 0;
 }
 
 /* Card list - single column */
 ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: clamp(8px, 1.4vh, 12px);
 }
 
 li a {
@@ -37,7 +44,7 @@ li a {
     text-decoration: none;
     color: inherit;
     border: 1px solid #ccc;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     transition: transform 0.2s ease;
     background: white;
@@ -50,19 +57,19 @@ li a:hover {
 }
 
 li a img {
-    width: 220px;
-    height: 160px;
+    width: clamp(172px, 29vw, 204px);
+    height: clamp(108px, 17vh, 132px);
     flex-shrink: 0;
     object-fit: contain;
     background-color: #fff;
-    padding: 8px 14px;
-    box-sizing: border-box;
+    padding: 8px 12px;
 }
 
 .card-content {
-    padding: 10px 24px;
+    padding: 8px clamp(14px, 3vw, 22px);
     display: flex;
     align-items: center;
+    min-width: 0;
 }
 
 .card-content p {
@@ -70,24 +77,64 @@ li a img {
     text-align: left;
     font-size: 1em;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.32;
+    overflow-wrap: anywhere;
 }
 
 .card-content small {
     font-weight: 400;
     color: #888;
-    font-size: 13px;
+    font-size: 12.5px;
 }
 
 
 .overall-container {
     max-width: 680px;
     margin: 0 auto;
-    padding: 0 20px;
-    padding-top: 40px;
+    padding: clamp(14px, 3.5vh, 32px) clamp(10px, 3vw, 20px) 0;
 }
+
+.intro {
+    margin: clamp(16px, 2.6vh, 24px) 0 clamp(18px, 3vh, 28px);
+}
+
+.intro p {
+    margin: 0 0 8px;
+    line-height: 1.45;
+}
+
+.intro p:last-child {
+    margin-bottom: 0;
+}
+
+.paper-page h4 {
+    margin: 0 0 10px;
+    text-align: left;
+    font-size: 1em;
+    line-height: 1.45;
+}
+
+.paper-page p {
+    margin: 0 0 12px;
+    line-height: 1.45;
+    font-size: 1em;
+}
+
+.paper-page p:last-child {
+    margin-bottom: 0;
+}
+
+.publication-authors {
+    color: inherit;
+}
+
+.paper-page a {
+    color: #0000ee;
+}
+
 .social-links {
     display: flex;
+    flex-shrink: 0;
     gap: 15px;
 }
 
@@ -96,7 +143,7 @@ li a img {
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     background: white;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
@@ -107,9 +154,10 @@ li a img {
 }
 .mol-card a {
     flex: 1;
+    min-width: 0;
     display: flex;
     align-items: center;
-    padding: 16px 24px;
+    padding: 8px clamp(14px, 3vw, 22px);
     text-decoration: none;
     color: inherit;
     border: none;
@@ -118,11 +166,17 @@ li a img {
     height: auto;
 }
 
+#mol-viewer {
+    width: clamp(172px, 29vw, 204px) !important;
+    height: clamp(108px, 17vh, 132px) !important;
+    margin: 0 !important;
+}
+
 .embed-card {
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     background: white;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
@@ -134,21 +188,22 @@ li a img {
 }
 
 .embed-card iframe {
-    width: 192px;
-    height: 132px;
+    width: clamp(172px, 29vw, 204px);
+    height: clamp(108px, 17vh, 132px);
     flex-shrink: 0;
     border: 0;
     display: block;
     background: #fff;
-    margin: 8px 14px;
+    margin: 0;
     border-radius: 4px;
 }
 
 .embed-card a {
     flex: 1;
+    min-width: 0;
     display: flex;
     align-items: center;
-    padding: 16px 24px;
+    padding: 8px clamp(14px, 3vw, 22px);
     text-decoration: none;
     color: inherit;
     border: none;
@@ -164,4 +219,80 @@ li a img {
 
 .white-image-bg a img {
     background-color: #fff;
+}
+
+@media (max-height: 720px) and (min-width: 561px) {
+    body {
+        padding-block: 6px;
+    }
+
+    .overall-container {
+        padding-top: 12px;
+    }
+
+    .intro {
+        margin: 12px 0 14px;
+    }
+
+    .intro p {
+        line-height: 1.35;
+    }
+
+    .card-content p {
+        font-size: 0.95em;
+        line-height: 1.25;
+    }
+
+    .card-content small {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 8px;
+    }
+
+    .overall-container {
+        padding: 10px 4px 0;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+
+    .intro {
+        margin: 12px 0 14px;
+        font-size: 0.92rem;
+    }
+
+    li a,
+    .mol-card,
+    .embed-card {
+        min-height: 96px;
+    }
+
+    li a img,
+    #mol-viewer,
+    .embed-card iframe {
+        width: 30vw !important;
+        min-width: 118px;
+        max-width: 128px;
+        height: 96px !important;
+    }
+
+    .card-content,
+    .mol-card a,
+    .embed-card a {
+        padding: 7px 10px;
+    }
+
+    .card-content p {
+        font-size: 0.88rem;
+        line-height: 1.24;
+    }
+
+    .card-content small {
+        font-size: 11.5px;
+    }
 }
