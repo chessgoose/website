@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lawrence Zhao</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,26 +36,46 @@
     </nav>
 
     <section class="intro">
-      <p>I am a researcher. I'm currently working on generative models at UIUC.</p>
-      <p>Previously, I was an early engineer at <a href="https://www.sea12.co/">Sea12</a>. Before that, I researched AI for single-cell biology and chemistry at Yale. </p>
+      <p>I am a researcher. I&rsquo;m currently working on intelligence for scientific discovery <span class="keep-together">at <a href="https://blender.cs.illinois.edu/">UIUC</a>.</span></p>
+      <p>Previously, I was an early engineer at <a href="https://www.sea12.co/">Sea12</a> and an undergraduate at <a href="https://www.yale.edu/">Yale</a>.</p>
     </section>
 
-    <br>
-    <br>
+    <section class="paper-page" aria-labelledby="selected-papers">
+      <h4 id="selected-papers">Selected Papers</h4>
 
-    <div class="paper-page">
-      <h4>Selected Papers</h4>
-      <p>
-        <strong>Non-Markovian Discrete Diffusion with Causal Language Models</strong><br>
-        <span class="publication-authors">Yangtian Zhang, Sizhuang He, Daniel Levine, <strong>Lawrence Zhao</strong>, David Zhang, Syed A. Rizvi, Emanuele Zappala, Rex Ying, David van Dijk</span><br>
-        NeurIPS 2025 &middot; <a href="https://arxiv.org/abs/2502.09767">paper</a> / <a href="https://sizhuang.org/assets/posters/CaDDi_NeurIPS_poster.pdf">poster</a>
-      </p>
-      <p>
-        <strong>What a Scientific Language Model Knows and Doesn&rsquo;t Know about Chemistry</strong><br>
-        <span class="publication-authors"><strong>Lawrence Zhao</strong>, Carl Edwards, Heng Ji</span><br>
-        NeurIPS 2023 Workshop &middot; <a href="https://openreview.net/pdf?id=hSmn7BQZ2v">paper</a>
-      </p>
-    </div>
+      <article class="publication">
+        <div>
+          <h3>Non-Markovian Discrete Diffusion with Causal Language Models</h3>
+          <p class="publication-authors">Yangtian Zhang, Sizhuang He, Daniel Levine, <strong>Lawrence Zhao</strong>, David Zhang, Syed A. Rizvi, Emanuele Zappala, Rex Ying, David van Dijk</p>
+        </div>
+        <div class="publication-meta">
+          <span>NeurIPS 2025</span>
+          <span class="publication-links"><a href="https://arxiv.org/abs/2502.09767">paper</a><a href="https://sizhuang.org/assets/posters/CaDDi_NeurIPS_poster.pdf">poster</a></span>
+        </div>
+      </article>
+
+      <article class="publication">
+        <div>
+          <h3>L+M-24: Building a Dataset for Language+Molecules</h3>
+          <p class="publication-authors">Carl Edwards, Qingyun Wang, <strong>Lawrence Zhao</strong>, Heng Ji</p>
+        </div>
+        <div class="publication-meta">
+          <span>Language + Molecules Workshop &middot; ACL 2024</span>
+          <span class="publication-links"><a href="https://aclanthology.org/2024.langmol-1.1.pdf">paper</a><a href="https://huggingface.co/datasets/language-plus-molecules/LPM-24_train">dataset</a></span>
+        </div>
+      </article>
+
+      <article class="publication">
+        <div>
+          <h3>What a Scientific Language Model Knows and Doesn&rsquo;t Know about Chemistry</h3>
+          <p class="publication-authors"><strong>Lawrence Zhao</strong>, Carl Edwards, Heng Ji</p>
+        </div>
+        <div class="publication-meta">
+          <span class="venue-two-line"><span>AI4Science Workshop</span><span>NeurIPS 2023</span></span>
+          <span class="publication-links"><a href="https://openreview.net/pdf?id=hSmn7BQZ2v">paper</a></span>
+        </div>
+      </article>
+    </section>
   </div>
   </div>
 
